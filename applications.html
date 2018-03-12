@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNN</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+    <link rel="stylesheet" href="assets/css/Article-Clean.css">
+    <link rel="stylesheet" href="assets/css/Bold-BS4-Jumbotron-with-Particles-js.css">
+    <link rel="stylesheet" href="assets/css/Bold-BS4-Jumbotron-with-Particles-js1.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="assets/css/Footer-Clean.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Search.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/Team-with-rotating-cards.css">
+</head>
+
+<body>
+    <div class="footer-basic">
+        <nav class="navbar navbar-light navbar-expand-md navigation-clean">
+            <div class="container"><a class="navbar-brand" href="home.html"><img src="assets/img/logo.jpg" id="logo">Convolutional Neural Networks</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div
+                    class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="about.html">About</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="applications.html">Applications</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="history.html">History</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="implementation.html">Implementation</a></li>
+                    </ul>
+            </div>
+    </div>
+    </nav>
+    </div>
+    <div class="article-clean">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
+                    <div class="intro">
+                        <h1 class="text-center">Applications of Convolutional Neural Networks</h1>
+                        <p class="text-center"><span class="by">by</span> <a href="#">Khoa bach tranh</a><span class="date">10th march 2018</span></p>
+                    </div>
+                    <div class="text">
+                        <p></p>
+                        <p>Neural networks(NNs) have seen usage in many industrial sectors and the same could be said about convolutional neural networks(CNNs). Starting from computer vision, game AIs, all the way through the medical industry. However, they
+                            are mostly reliant on the image processing ability of CNNs, which is going to be the focus of the upcoming details.&nbsp;<br></p>
+                        <h2><strong>The structure of a CNN</strong></h2>
+                        <p>To understand why CNNs are so powerful and popular these days, &nbsp;there are some essential things to know about how CNNs are built up. The underlying structure of CNNs are based on simple feed forward neural networks(FFs). On
+                            a basic level, there are two major differences - or rather improvements - compared to FFs, the first being the convolutional layer and the second being the pooling layer.&nbsp;<br></p>
+                        <figure><img class="figure-img" src="assets/img/Picture7.jpg">
+                            <figcaption><em>Source: Fjodor van Veen, edited for clarity</em><br></figcaption>
+                        </figure>
+                        <p>Neurons in the convolutional layer will take a small sample/chunk from the input data, and will compute an activation value(depending on the weights, biases and activation function mentioned above). Often times the neurons in one
+                            convolutional layer share the same weights and biases (thus massively cutting down training and computing times). Because of this, convolutional layers can be thought of as a filter, where the layer checks for a certain “pattern”
+                            in the whole image. For example, in our X and O project, a convolutional layer can be imagined as being a quarter of a circle(╭). Obviously, in reality the CNN will most likely have a weight and bias value which detects something
+                            entirely else, but it’s nice and easy to think of them this way.<br></p>
+                        <figure><img class="figure-img" src="assets/img/Picture8.jpg">
+                            <figcaption>&nbsp; &nbsp; &nbsp;<em>The convolutional layer which can be thought of as a filter that scans the whole input (e.g in this case the upper would have an activation of near 1 or high (depending on whether a sigmoid or RELU was used) and the bottom one somewhere around 0.5 or middle ground)</em><br></figcaption>
+                        </figure>
+                        <p>The pooling layer(s) will gradually downsample the input dimensions, thus decreasing the amount of computing needed. While some data is lost with the downsample, it is still viable due to the amount of optimization it provides.<br></p>
+                        <p>After this come the fully-connected(FCs) layer(s) which work just like a FF. CNNs can be just visualised as an addition in front of a FF. After adding all these together, let’s take our X and O project as an example and work through
+                            the whole process. The first layer is the input, which is the grayscale value of every input pixel. This then goes through a couple of convolutional layers, which for simplicity’s sake, are imagined as filters. The first filter
+                            could detect lines/edges, the second then would recognise smaller patterns like quarter circles or one of the lines of the X. The pooling layers will gradually reduce this input amount. Thus, we end up with (hypothetically
+                            speaking) a 4 input layer for our FF part. Then the FF will just evaluate the 4 values which could be the 4 quarters of the picture, each having an activation value of whether an X part or O part is present in that quarter.
+                            (disclaimer: in reality, chances are that the actual inner DNA(weights and biases) detect something completely else, usually seemingly random noise to the human eye).<br></p>
+                        <figure><img class="figure-img" src="assets/img/Picture9.jpg">
+                            <figcaption><br></figcaption>
+                        </figure>
+                        <p>Another example would be having a CNN trying to recognise a car. First would be the edges, then the wheels, windows, doors. Then look at which elements are present, and then calculate how likely it is a car.<br></p>
+                        <h2><strong>Why CNNs are superior to simple FFs</strong><br></h2>
+                        <p>With the basics down, we can now finally tackle the question of why CNNs are so widely researched and used nowadays. These include speed, flexibility, scalability and most importantly accuracy. Below is the breakdown of each category.<br></p>
+                        <p>Optimization is always a crucial factor when building NNs. Even with a seemingly trivial task of recognising a 32x32 picture of an X and O, having a FF of 2 hidden layers of 16 neurons and 2 outputs, the DNA(number of weights and
+                            biases) would be 16672(weights) + 34(biases) = 16706 (32 * 32 * 16 + 16 * 16 + 16 * 2 + 34). Having fully-connected layers are extremely expensive. CNNs solve this by introducing the pooling layers, with which one can fine
+                            tune the amount of unimportant data to drop. Since convolutional layers only need to store one set of weights and bias, this further decreases the memory and computing usage. Taking the aforementioned X and O CNN, we only had
+                            4 inputs for our FF part. We could achieve this by having 4 convolutional layers(each which “scan” a 3 area and have padding to avoid downsampling in these layers) and 4 pooling layers each which downsample the resolution dimensions
+                            to half. The FF part of the CNN is so small that there is no need for hidden layers. All together, this CNN would have a DNA of 5448(weights) + 9(biases) = 5457.&nbsp;<br></p>
+                        <p>1024 * 3 + 256 * 4 + 256 * 3 + 64 * 4 + 64 * 3 + 16 * 4 + 16 * 3 + 4 * 4 + 4 * 2. This is an enormous improvement over the FF structure. Much faster, yet similarly (if not more) accurate as the former.<br></p>
+                        <p>Accuracy is just as important as speed, after all, our image recognition needs to be as consistent as it can get. This is where CNNs truly shine. The secret lies in the convolutional layers, which in previous examples have been
+                            illustrated in a way to show it. Let’s take the idea that we want to recognise motorbikes. There is a much higher chance that a FF would mistake the cycle as an actual motorbike, while an CNN would be much more likely to distinguish
+                            the two, but why is that? From the FF’s perspective, who “in a sense” tries to sample the whole image and it might just mistake the general shape to be the same as a motorbike. On the other hand, a similarly complex CNN would
+                            likely to distinguish the two, as CNNs in a manner learn and try to understand what is in the picture in a much higher detail. Going back to the filtering process, a CNN would know that a motorbike is built up from 2 wheels,
+                            and has a engine. It would see that the cycle has unknown(pedal) instead of an engine, and will likely to throw a negative output activation.<br></p>
+                        <figure><img class="figure-img" src="assets/img/Picture10.jpg">
+                            <figcaption><em>&nbsp;A FF might mistake the general shape</em><br></figcaption>
+                        </figure>
+                        <figure><img class="figure-img" src="assets/img/Picture11.jpg">
+                            <figcaption><em>&nbsp;A CNN probably realizes the difference between the engine and pedal</em><br></figcaption>
+                        </figure>
+                        <p>Flexibility is another crucial advantage of a NN infrastructure. In an FF, if one wanted to make one tiny change (for example add in an extra 2 neurons to a hidden layer), it would dramatically change the whole system. With CNNs,
+                            you can easily segregate tasks and spread them out freely. Segregating the classification process and the downsampling is a huge time saver and is much easier to work with as a programmer. It is like having your code nicely
+                            grouped into packages as opposed to having one giant mess of a code.<br></p>
+                        <h2><strong>Usages in the industry</strong><br></h2>
+                        <p>Being one of the most popular image manipulation softwares, Adobe Photoshop (in the future Adobe Creative Cloud) offers a great and huge field for different technologies of deep NNs to experiment. While they are yet to make it
+                            to the public build of the software, there were showcases of multiple projects utilizing NNS. One such project is Project Deep Fill. Deep fill is a tool, which essentially enables users to fill in an area in the theme of the
+                            rest of the scene (mostly used to erase unwanted objects). Unlike the current technology of content aware fill (which just stamps the adjacent area onto the fill area), deep fill will not only make the fill visually correct,
+                            but correct in a human common sense way. This is where having a NN have a deep understanding of the meaning behind the details of the image is so beneficial.&nbsp;<br></p>
+                        <p>Staying at Adobe, they have another in progress project called Scribbler. The neural network, after being trained on more than a million samples, it can colorize grayscale images (at this point of time, mostly faces were shown).<br></p>
+                        <p>While in both cases, the only thing revealed was that a deep NN was used, with the current trend and the visual processing power of CNNs, it is very likely that some form of a CNN was used.<br></p>
+                        <figure><img class="figure-img" src="assets/img/Picture12.jpg">
+                            <figcaption><em>The deep fill technology of Adobe (courtesy of Adobe)</em><br></figcaption>
+                        </figure>
+                        <p>As a last example, one of the most famous projects connected to CNNs are self driving cars. CNNs are perfectly suited for self driving cars, as they excel at image recognition and classification. Self driving cars need to detect
+                            obstacles or assert whether it is a car or a person passing in front of the car. The speed and maintainability of CNNs are also important here, to be able to process a video feed and computing the best course of action in real-time
+                            is a huge computational task. In the past, NVIDIA has tried to experiment with self driving cars in 2016.<br></p>
+                        <h2><strong>Challenges for CNNs</strong><br></h2>
+                        <p>Being one of the most active research fields in our current day, working with neural networks bring up a number of challenges and issues. <br></p>
+                        <p>From start to finish, every step is a huge challenge. The design part is extremely important. That’s when one have to decide how many convolutional layers, pooling layers and hidden layers should be in the CNN. How strong should
+                            the pooling layers be? There are almost infinite amount of different ways to go about designing a CNN structure, but nobody really knows which one is the best until the training is finished.<br></p>
+                        <p>The training is, however, the most difficult part. Similar to FFs, CNNs are also trained by backpropagation, which in itself is not big issue (though it does take a significant amount of calculations most of the time compared to
+                            a e.g reinforced learning). The issue with having backpropagation(and most supervised training method) is the need for a massive training dataset. Self driving companies allocate major resources on just labeling different city
+                            images. Building a sufficiently large dataset is time and money consuming.<br></p>
+                        <h2><strong>References</strong><br></h2><p>
+Adobe deep fill : https://www.youtube.com/watch?v=rqRY92AcY6k
+
+<br>
+<br>
+    Adobe Scribbler : https://www.youtube.com/watch?v=seBbuYiBXSc
+<br>
+<br>
+    http://cs231n.github.io/convolutional-networks/
+<br>
+<br>
+    https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5680669/
+<br>
+<br>
+    http://ijcsit.com/docs/Volume%207/vol7issue5/ijcsit20160705014.pdf
+<br>
+<br>
+    https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5680669/
+<br>
+<br>
+    https://www.youtube.com/watch?v=aircAruvnKk
+<br>
+<br>
+https://towardsdatascience.com/applied-deep-learning-part-4-convolutional-neural-networks-584bc134c1e2
+
+
+</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-basic">
+        <p id="team"><br><a href="team.html" style="color:rgb(74,66,66);"><strong>Meet The Team</strong></a></p>
+        <footer>
+            <p class="copyright">Imperial College London - Computing Topics © 2018</p>
+        </footer>
+    </div>
+    <div class="footer-basic"></div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/Bold-BS4-Jumbotron-with-Particles-js.js"></script>
+</body>
+
+</html>
