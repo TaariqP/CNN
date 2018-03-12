@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CNN</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora">
+    <link rel="stylesheet" href="assets/css/Article-Clean.css">
+    <link rel="stylesheet" href="assets/css/Bold-BS4-Jumbotron-with-Particles-js.css">
+    <link rel="stylesheet" href="assets/css/Bold-BS4-Jumbotron-with-Particles-js1.css">
+    <link rel="stylesheet" href="assets/css/Footer-Basic.css">
+    <link rel="stylesheet" href="assets/css/Footer-Clean.css">
+    <link rel="stylesheet" href="assets/css/Navigation-Clean.css">
+    <link rel="stylesheet" href="assets/css/Navigation-with-Search.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="assets/css/Team-with-rotating-cards.css">
+</head>
+
+<body>
+    <div class="footer-basic">
+        <nav class="navbar navbar-light navbar-expand-md navigation-clean">
+            <div class="container"><a class="navbar-brand" href="index.html"><img src="assets/img/logo.jpg" id="logo">Convolutional Neural Networks</a><button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+                <div
+                    class="collapse navbar-collapse" id="navcol-1">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="about.html">About</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="applications.html">Applications</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="history.html">History</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" href="implementation.html">Implementation</a></li>
+                    </ul>
+            </div>
+    </div>
+    </nav>
+    </div>
+    <div class="article-clean">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
+                    <div class="intro">
+                        <h1 class="text-center">What are Convolutional Neural Networks?</h1>
+                        <p class="text-center"><span class="by">by</span> <a href="#">TAARIQ PALA</a><span class="date">10th march 2018</span></p>
+                    </div>
+                    <div class="text">
+                        <p>The discipline of Artificial Intelligence is becoming an increasingly investigated area within mathematics and computer science as we attempt to create our own intelligence. Researchers believe that we can use the human brain as
+                            a model to replicate intelligence and effectively, emulate the brain. This involves the creation and use of neural networks.<br></p>
+                        <figure><img class="figure-img" src="assets/img/Picture1.jpg">
+                            <figcaption>[Figure 1. cs231n.github.io]<br></figcaption>
+                        </figure>
+                        <p>Instead of emulating the entire brain which would be both time-consuming and computationally expensive (the human brain contains approximately 10^11 neurons), researchers have simulated a large array of neurons to create a network.
+                            This simulation is known as ‘deep learning.’&nbsp;<br></p>
+                        <h2><strong>What are Neural Networks?</strong><br></h2>
+                        <p>A neural network acquires knowledge through learning and this knowledge is stored within inter-neuron connection strengths known as synaptic weights. Neural networks are effectively weighted directed graphs in which the neurons
+                            act as nodes and the edges are connections between neuron inputs and outputs.<br></p>
+                        <figure><img class="figure-img" src="assets/img/Picture2.jpg">
+                            <figcaption>Caption</figcaption>
+                        </figure>
+                        <p>In standard neural networks, the input is received as a vector and transforms it through a series of layers that are hidden. This input are notated by x(n) where n is the number of inputs and each of these layers are made up of
+                            a set of neurons. Each input is then multiplied by its corresponding weight. The inputs x and w can be positive or negative. As in Figure 2, the perceptron consists of weights, an activation function and a summation processor.
+                            All of the inputs are summed and passed to the activation function. An activation function is a mathematical function mapping a set of inputs to a set of outputs. The simplest example of an activation function would be a “step
+                            function” which outputs a 1 if the value is above a certain threshold, 0 otherwise. Other mathematical functions can be used.<br></p>
+                        <p><br>The idea behind the training of a neural network is simple. We provide the neural network with training data, and the neural network will learn from that data and apply this to future data. For example, if we show the network
+                            an image of an dog we can expect the network to be able to identify correctly whether the next image is that of a dog as opposed to something else.<br></p>
+                        <h2><strong>What are Convolutional Neural Networks?</strong><br></h2>
+                        <p><br>Convolutional Neural Networks (CNN), like standard neural networks, are made up of neurons with learnable weights and biases (threshold processors). They are effectively a particular class of feed-forward neural networks.&nbsp;Unlike
+                            standard neural networks as described above, the input for a CNN is shown below.<br></p>
+                        <figure><img class="figure-img" src="assets/img/Picture3.jpg">
+                            <figcaption>&nbsp; &nbsp; [Figure 2. A perceptron]<br></figcaption>
+                        </figure>
+                        <p><br>This is known as an input layer or an input volume and it consists of a matrix of pixel values. In the example in Figure 3, the width and height are 32 and the depth is 3. The depth represents RGB channels.&nbsp;The first layer
+                            in a CNN is always a convolutional layer. The objective of the convolutional layer is to extract features of the input volume.<br></p>
+                        <figure><img class="figure-img" src="assets/img/Picture4.jpg">
+                            <figcaption>[Figure 3. Filters]</figcaption>
+                        </figure>
+                        <p><br>A convolutional layer has a set of matrices. These matrices are called filters or kernels. Filters are used to detect low level features such as curves and edges. A good way to understand this is to visualise a flashlight on
+                            the volume covering a 5 x 5 area. It has the same depth as the volume also. This flashlight is the filter and it slides across all the areas of the input image. The region covered by the flashlight is called the receptive field.
+                            &nbsp;The filter is an array of weights. It traverses or<strong> convolves around</strong> the volume, multiplying values in the filter with values in the volume. These multiplications are summed up to produce a single number.
+                            We repeat this for the entire volume. The remaining numbers is known as an <strong>activation map</strong>. This is outputted by the convolutional layer. Typically the convolutional neural networks consists of many convolutional
+                            layers. The output of one layer is the input of another.<br></p>
+                        <figure><img class="figure-img" src="assets/img/Picture5.jpg">
+                            <figcaption>[Figure 4. Layers]</figcaption>
+                        </figure>
+                        <p><br>As you might expect, we require higher level features to be detected in order to accurately identify the object an image represents. Thus the first convolutional layer will have detected low level features and its activation
+                            map will be passed to the second layer. The second layer will detect higher levelled features.<br></p>
+                        <p><br>Having detected some of the high level features, the final stage is to have a full connected layer at the end of the network. It will take an input volume and produce an X-dimensional vector, where X is the number of classes
+                            that the computer can choose from. For example, if you were to determine what digit is stored within an image you would have 10 possible classes. Each element of the vector represents the probability of a specific class. Thus
+                            the fully connected layer takes the final activation map (having been through all the filters) and determines which features best correlate to a particular class. For example, if the image represented a dog the activation map
+                            will have high values where it represents four legs, paws and a tail.<br></p>
+                        <p><br>So how do we train the CNN to differentiate a particular object from others? How does it learn?The computer is able to adjust its filter values through a training process known as back propogation.&nbsp;<br></p>
+                        <h2><strong>References</strong><br></h2><p>
+<br>
+https://adeshpande3.github.io/A-Beginner%27s-Guide-To-Understanding-Convolutional-Neural-Networks/
+<br>
+<br>
+http://cs231n.github.io/convolutional-networks/
+<br>
+<br>
+https://medium.com/@xenonstack/overview-of-artificial-neural-networks-and-its-applications-2525c1addff7
+<br>
+<br>
+Taariq Pala's Extended Project on Artificial Intelligence
+<br>
+<br>
+https://medium.com/@phidaouss/convolutional-neural-networks-cnn-or-convnets-d7c688b0a207
+<br>
+<br>
+https://towardsdatascience.com/what-is-wrong-with-convolutional-neural-networks-75c2ba8fbd6f
+</p></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-basic">
+        <p id="team"><br><a href="team.html" style="color:rgb(74,66,66);"><strong>Meet The Team</strong></a></p>
+        <footer>
+            <p class="copyright">Imperial College London - Computing Topics © 2018</p>
+        </footer>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/Bold-BS4-Jumbotron-with-Particles-js.js"></script>
+</body>
+
+</html>
