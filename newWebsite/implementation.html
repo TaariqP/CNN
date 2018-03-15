@@ -36,8 +36,68 @@
     </nav>
     </div>
     <div class="article-clean"></div>
+    <div class="article-clean">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
+                    <div class="intro">
+                        <h1 class="text-center"><strong>Convolutional Neural Network Implementation</strong><br></h1>
+                        <p class="text-center"><span class="by">by</span> <a href="#">Teymor buckley</a><span class="date">15TH MARCH 2018</span></p>
+                    </div>
+                    <div class="text"><h2><a href="CNN.jar">Click here to download the implementation.</a></h2>
+                        <h2>Overview</h2>
+                        <p>Our implementation lets the user create an image on a 9x9 grid, and manually apply the layers a CNN would apply to it. This helps create a better understanding of what is going on behind the scenes and give a real example as a
+                            point of reference when learning about convolution neural networks. As with all examples aimed at people with a basic knowledge of a subject, the implementation has limitations. This walkthrough aims to focus on higher level
+                            aspects of CNNs such as which functions are applied to an image when analysing it, and not on how the CNN decides to apply these functions and other aspects related to machine learning or back propagation. After all, the reasoning
+                            behind the choice of which features to use matters a lot less when it’s the user designing the features.<br></p>
+                        <h2><strong>Features</strong></h2>
+                        <p>A feature is a smaller part of a main image used to identify the main image. A feature may just be a diagonal line when analysing a character, or an ear if looking at the image of a face. Features are used in convolution to find
+                            similar looking sections in the main image.<br></p>
+                        <h2><strong>Convolution</strong></h2>
+                        <p>A CNN cannot know exactly where a feature will appear, and so it must search for the feature everywhere in the image. To do this, it examined every possible place the feature could occur and uses&nbsp;<em>convolution</em>. In our
+                            implementation there are only two options for a pixel: coloured in or black. This makes our lives easier because we can just set the value for a black pixel to -1.0 and the value for a coloured in pixel to 1.00. Convolution
+                            is multiplying each pixel by the corresponding pixel in the feature, then taking the average. Not a very tricky mathematical process, but a powerful one. Numbers closer to one can indicate a strong similarity to the feature
+                            at the given point, whereas negative numbers indicate there is little similarity. Features in our implementation are chosen by the user, but a CNN will have preset features for each potential outcome. For instance is a CNN
+                            is designed to tell whether an image is an X or a O, there will be certain features that the CNN has learned (through back propagation) are very common in most variants of each option.<br></p>
+                        <h2><strong>Pooling</strong></h2>
+                        <p>Convolutional Neural Networks take up a lot of processing power, because they do a lot! Pooling is a process used by CNNs to reduce the workload. Stepping through small windows and taking a key value from each massively cuts down
+                            on processing time. In our implementation we just took 2x2 windows reducing the number of cells to as little as a quarter.<br></p>
+                        <h2><strong>Rectified Linear Units</strong></h2>
+                        <p>The rectified linear unit is a very simple concept, and by far the easiest math of the process. Any negative number is replaced with a zero, so as to prevent values from sticking around 0. It’s a very basic process which is less
+                            about analysing our canvas and more about improving the efficiency of convolution.<br></p>
+                        <h2>A guide to our implementation of CNNs<br></h2>
+                        <figure><img class="figure-img" src="assets/img/Convolution_Neural_Network_Walkthrough_Guide_html_212819f8.png">
+                            <figcaption>The above image is what you should see when you start up the walkthrough program.<br></figcaption>
+                        </figure>
+                        <h2>Canvas<br></h2>
+                        <p>The main 9x9 grid of -1.00 cells is the main image and is a canvas for you to draw on. If you click (or touch) on any cell it will turn the cell into the negative of itself. Do this at the beginning to draw a shape of 1s and -1s.
+                            -1.00 and 1.00 zero are the minimum and maximum possible values respectively that a cell can hold. This grid is the image you will be applying CNN layers to. The top right 3x3 square is a feature canvas. It functions similarly
+                            to the main grid, except it is not affected by anything you apply to the main canvas. The feature canvas is only used when adding a convolution layer to the main canvas.<br></p>
+                        <h2>Buttons<br></h2><p>The four buttons each apply a unique function to the main canvas. What each of these functions means and why they are important will be covered is in a different page, and for this guide we will only go into them on a surface level.
+    <br>
+    <br>
+    -Reset: The reset button
+    simply clears everything you have done and resets the main canvas to a blank 9x9 canvas and the feature canvas to a blank 3x3.
+    <br>
+    <br>
+    -RelU: Short for rectified linear units, this button turns all negative numbers into zeros.
+    <br>
+    <br>
+    -Pool: The pool button creates
+    a smaller canvas by taking the maximum value from each 2x2 square, reducing the number of cells/pixels.
+    <br>
+    <br>
+    -Convolution: The convolution button uses the filter canvas, filtering/comparing every possible 3x3 canvas from the main canvas and creating a new
+    canvas using convolution.<br /></p>
+                        <h2>Notes<br></h2>
+                        <p>Before and after: Below are the before and after pictures because of pressing the convolution button. Note that the colour of the cell is different for each unique number, as the colour scales from black, or (0, 0, 0) on the negative
+                            end and blue or (0, 0, 255) on the positive end. This colour scaling helps you understand where the original canvas best matched the feature.<br></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="footer-basic">
-        <div class="container"></div>
         <p id="team"><br><a href="team.html" style="color:rgb(74,66,66);"><strong>Meet The Team</strong></a></p>
         <footer>
             <p class="copyright">Imperial College London - Computing Topics © 2018</p>
